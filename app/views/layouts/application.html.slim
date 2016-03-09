@@ -11,7 +11,10 @@ html lang="en"
   = csrf_meta_tag
 
 body
+    .row
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert"
 
-  == yield
+    = yield
 
-  = javascript_include_tag "application"
+= javascript_include_tag "application"
