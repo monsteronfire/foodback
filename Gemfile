@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Foodback Germs
-gem 'foundation-rails'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'better_errors'
