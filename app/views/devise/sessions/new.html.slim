@@ -1,0 +1,20 @@
+h2 Log in
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = devise_error_messages!
+  div.field
+    = f.label :email
+    = f.email_field :email, autofocus: true, placeholder: 'Email'
+  div.field
+    = f.label :password
+    = f.password_field :password, autocomplete: "off", placeholder: 'Password'
+
+  - if devise_mapping.rememberable?
+    div.field
+      = f.check_box :remember_me
+      = f.label :remember_me
+
+  div.actions
+    = f.submit "Log in", class: "btn btn-primary"
+
+= render "devise/shared/links"
