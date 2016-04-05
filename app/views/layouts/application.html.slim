@@ -11,7 +11,7 @@ html lang="en"
   = csrf_meta_tag
 
 body
-    .row
+    .container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert"
 
