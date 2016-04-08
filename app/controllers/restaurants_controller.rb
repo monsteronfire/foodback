@@ -2,9 +2,6 @@ class RestaurantsController < ApplicationController
   def index
   end
 
-  def show
-  end
-
   def new
     @restaurant = Restaurant.new
   end
@@ -13,6 +10,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save
     redirect_to @restaurant
+  end
+
+  def show
+    
   end
 
   def edit
