@@ -16,6 +16,7 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'better_errors'
 gem 'slim-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'

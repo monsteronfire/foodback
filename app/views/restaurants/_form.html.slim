@@ -1,19 +1,25 @@
-h2 _form.html.slim
-
 = form_for @restaurant do |f|
-  = f.label :name
-  = f.text_field :name
-
-
-
-  / create_table "restaurants", force: :cascade do |t|
-  /   t.string "name"
-  /   t.text   "description"
-  /   t.string "address1"
-  /   t.string "address2"
-  /   t.string "city"
-  /   t.string "state"
-  /   t.string "zipcode"
-  /   t.string "phone"
-  /   t.string "email"
-  / end
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :address1
+    = f.text_field :address1
+  .field
+    = f.label :address2
+    = f.text_field :address2
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :state
+    = f.text_field :state
+  .field
+    = f.label :zipcode
+    = f.text_field :zipcode
+  .field
+    = f.label :email
+    = f.text_field :email
