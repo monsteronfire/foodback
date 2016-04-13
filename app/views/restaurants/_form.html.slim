@@ -6,6 +6,8 @@
     = f.label :description
     = f.text_area :description
   .field
+    = f.select :category_id, Category.all.map{ |f| [f.name, f.id] }
+  .field
     = f.label :address1
     = f.text_field :address1
   .field

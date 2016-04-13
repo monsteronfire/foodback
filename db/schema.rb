@@ -11,23 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309004519) do
+ActiveRecord::Schema.define(version: 20160413160754) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.text   "description"
-    t.string "address1"
-    t.string "address2"
-    t.string "city"
-    t.string "state"
-    t.string "zipcode"
-    t.string "phone"
-    t.string "email"
+    t.string  "name"
+    t.text    "description"
+    t.string  "address1"
+    t.string  "address2"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zipcode"
+    t.string  "phone"
+    t.string  "email"
+    t.integer "category_id"
   end
+
+  add_index "restaurants", ["category_id"], name: "index_restaurants_on_category_id"
 
   create_table "reviews", force: :cascade do |t|
     t.string  "comment"
