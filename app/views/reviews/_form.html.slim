@@ -1,0 +1,7 @@
+h2 _form.html.slim
+
+= simple_form_for [@restaurant, @review] do |f|
+  .field
+    = f.text_area :comment
+    = f.number_field :rating
+    = f.button :submit, class: "btn btn-primary"
