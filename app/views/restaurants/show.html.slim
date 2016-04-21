@@ -4,3 +4,5 @@ h3 Reviews
 = @reviews.each do |review|
   = review.comment
 end
+
+.star-rating data-score=@avg_rating
