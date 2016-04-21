@@ -16,3 +16,9 @@
 //= require jquery.raty
 //= require turbolinks
 //= require_tree .
+
+$('.star-rating').raty({
+  path: '/assets',
+  readOnly: true,
+  score: function() { return $(this)attr('data-score'); } 
+});
