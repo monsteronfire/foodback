@@ -3,18 +3,28 @@ html lang="en"
   head
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-
     title == content_for?(:title) ? yield(:title) : "Foodback"
-
-  = stylesheet_link_tag "application"
-  = javascript_include_tag "vendor/modernizr"
-  = csrf_meta_tag
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tag
 
 body
+    nav.navbar.navbar-default
+      .container
+        .navbar-brand= link_to "Foodback", root_path
+
+        - if user_signed_in?
+          ul.nav.navbar-nav.navbar-right
+            li= link_to "New Restaurant", new_restaurant_path
+            li= link_to "Sign Out", destroy_user_session_path, method: :delete
+        - else
+          ul.nav.navbar-nav.navbar-right
+            li= link_to "Sign Up", new_user_registration_path
+            li= link_to "Sign In", new_user_session_path
+
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert"
 
     = yield
-
 = javascript_include_tag "application"
