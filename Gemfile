@@ -17,6 +17,7 @@ gem 'devise'
 gem 'better_errors'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'
