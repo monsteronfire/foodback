@@ -4,8 +4,22 @@ class RestaurantsController < ApplicationController
   def index
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @reviews = Review.where(restaurant_id: @restaurant)
+
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @reviews.average(:rating).round(2)
+    end
+  end
+
   def new
     @restaurant = Restaurant.new
+  end
+
+  def edit
   end
 
   def create
@@ -18,24 +32,14 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def show
-    @restaurant = Restaurant.find(params[:id])
-    @reviews = Review.where(restaurant_id: @restaurant)
-
-    if @reviews.blank?
-      @avg_rating = 0
-    else
-      @avg_rating = @reviews.average(:rating).round(2)
-    end
-  end
-
-  def edit
-  end
-
   def updates
   end
 
   def destroy
+  end
+
+  def search
+    restaurants = Restaurant.search(params)
   end
 
   private

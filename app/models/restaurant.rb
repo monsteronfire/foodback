@@ -10,4 +10,11 @@ class Restaurant < ActiveRecord::Base
   def full_address
     [address1, address2, city, state, zipcode].join(', ')
   end
+
+  def self.search(params)
+    restaurants = Restaurant.where(category_id: params[:category].to_i)
+    restaurants = Restaurant.where("name like ? or description like ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+    restaurants = Restaurant.near(params[:location], 20) if params[:location].present?
+    restaurants
+  end
 end
