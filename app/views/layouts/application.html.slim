@@ -17,8 +17,11 @@ body
           ul.nav.navbar-nav.navbar-right
             li= link_to "New Restaurant", new_restaurant_path
             li= link_to "Sign Out", destroy_user_session_path, method: :delete
-          form_tag search_restaurants_path, method: :get do |f|
-          
+          = simple_form_for search_restaurants_path, method: :get do |f|
+            f.text_field :search, nil, placeholder: "Food"
+            f.text_field :location, nil, placeholder: "Bangsar"
+            f.select :category, options_for_select(Category.all.map{ |c| [c.name, c.id]})
+            f.submit 'Search'       
         - else
           ul.nav.navbar-nav.navbar-right
             li= link_to "Sign Up", new_user_registration_path
