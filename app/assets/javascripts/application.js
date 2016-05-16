@@ -20,5 +20,5 @@
 $('.star-rating').raty({
   path: '/assets',
   readOnly: true,
-  score: function() { return $(this)attr('data-score'); } 
+  score: function() { return $(this).attr('data-score'); } 
 });
